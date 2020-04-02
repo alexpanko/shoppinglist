@@ -6,3 +6,6 @@ npm-debug.log
 
 # Environment Variables should NEVER be published
 .env
+
+# Custom attributes of the project folder on my Mac
+.DS_Store

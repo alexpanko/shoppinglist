@@ -1,15 +1,11 @@
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 body {
-  // padding: 50px;
-  font: 16px 'Open Sans', 'Roboto', Helvetica, Arial, sans-serif;
-}
+  font: 16px 'Open Sans', 'Roboto', Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 .myHeader {
   display: flex;
@@ -18,44 +14,36 @@ a {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
-}
+  background-repeat: no-repeat; }
 
 @media (max-width: 400px) {
   .myHeader {
     height: 80vh;
-    background-attachment: initial;
-  }
-}
+    background-attachment: initial; } }
 
 .myLogo {
   font-family: 'Gloria Hallelujah', cursive, Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
-}
+  font-size: 1.6rem; }
 
 .myColor-BrightYarrow {
-  color: #fdcb6e !important;
-}
+  color: #fdcb6e !important; }
 
 .myColor-ElectronBlue {
-  color: #0984e3 !important;
-}
+  color: #0984e3 !important; }
 
 .myFooter {
-  background-color: #b2bec3 !important;
-}
+  background-color: #b2bec3 !important; }
 
 .myWidth-300 {
-  width: 300px;
-}
+  width: 300px; }
 
 .hr-text {
-  position: relative;
-}
+  position: relative; }
 
 .hr-text span {
   position: absolute;
   top: 50%;
   margin-top: -10px;
-  margin-left: -20px;
-}
+  margin-left: -20px; }
+
+/*# sourceMappingURL=style.css.map */
