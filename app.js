@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const session      = require('express-session');
 const Mongostore   = require('connect-mongo')(session)
+const flash        = require('connect-flash')
 const passport = require('./auth/passport')
 
 
@@ -39,7 +40,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(passport.initialize())
+app.use(flash());
+app.use(passport.initialize());
 app.use(passport.session())
 
 // Express View engine setup
@@ -68,5 +70,8 @@ app.use('/', index);
 
 const authRouter = require('./routes/auth')
 app.use('/auth', authRouter)
+
+const listsRouter = require('./routes/lists')
+app.use('/lists', listsRouter)
 
 module.exports = app;

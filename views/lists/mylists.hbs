@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row mt-3 mb-5">
+    <div class="col-md-6">
+      <h1>My Lists:</h1> 
+    </div>
+    <div class="col-md-6">
+      <a class="btn btn-primary px-5" href="/lists/newlist" role="button">+ Add New List</a>
+    </div>
+  </div>
+
+  {{#if lists.listName}}
+    <div class="row my-3">
+      <div class="col">
+        <p class="text-secondary">You don't have any lists yet...</p> 
+      </div>
+    </div>
+  {{/if}}
+
+  {{#each lists}}
+  <div class="row my-3">
+    <div class="col-md-6">
+      <h3>{{listName}}</h3>
+      <p>{{listDescription}}</p> 
+    </div>
+    <div class="col-md-6">
+      <a class="btn btn-secondary btn-sm px-3 mr-3" href="/lists/edit/{{id}}" role="button">Edit list</a>
+      <a class="btn btn-secondary btn-sm px-3" href="/lists/delete/{{id}}" role="button">Delete list</a>
+    </div>
+  </div>
+  {{/each}}
+
+</div>
