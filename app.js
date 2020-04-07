@@ -15,7 +15,7 @@ const passport = require('./auth/passport')
 
 
 mongoose
-  .connect('mongodb://localhost/shoppinglist', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -73,5 +73,8 @@ app.use('/auth', authRouter)
 
 const listsRouter = require('./routes/lists')
 app.use('/lists', listsRouter)
+
+const itemsRouter = require('./routes/items')
+app.use('/items', itemsRouter)
 
 module.exports = app;
