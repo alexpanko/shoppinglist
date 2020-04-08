@@ -34,15 +34,11 @@ router.post('/newitem', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, ne
 //View items in the list
 router.get('/listview/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const user = req.user
-  // How to get list name?
-  List.findById(req.params.id)
-  .then()
-  // 
-  Item.find({
-    listId: req.params.id
-  })
-  .then(items => {
-    res.render('items/listview', { items, user });
+  const list = List.findById(req.params.id)
+  const item = Item.find({listId: req.params.id})
+  Promise.all([list, item])
+  .then(values => {
+    res.render('items/listview', {values, user });
   })
   .catch(e => next(e))
 });

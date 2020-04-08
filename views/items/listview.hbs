@@ -1,3 +1,72 @@
 user: {{user}} <br>
-list: {{lists}} <br>
+<hr>
+list: {{values.0.listName}} <br>
+<hr>
+{{list}} <br>
 item: {{items}} <br>
+
+<div class="container">
+  <div class="row mt-3 mb-5">
+    <div class="col-md-6">
+      <h1>{{values.0.listName}}</h1> 
+    </div>
+    <div class="col-md-6">
+      <a class="btn btn-primary px-5" href="/items/newitem" role="button">+ Add New Item</a>
+    </div>
+  </div>
+
+  {{#unless values.0.itemName}}
+    <div class="row my-3">
+      <div class="col">
+        <p class="text-secondary">You don't have any items yet...</p> 
+      </div>
+    </div>
+  {{/unless}}
+
+  {{#each values.[1]}}
+  <div class="row my-3">
+    <div class="col-md-6">
+      <h3>{{itemName}}</h3>
+      <p>{{itemNotes}}</p> 
+    </div>
+    <div class="col-md-6">
+      <a class="btn btn-secondary btn-sm px-3 mr-3" href="/items/listview/{{id}}" role="button">View items</a>
+      <a class="btn btn-secondary btn-sm px-3 mr-3" href="/lists/edit/{{id}}" role="button">Edit list</a>
+      <a class="btn btn-secondary btn-sm px-3" href="/lists/delete/{{id}}" role="button">Delete list</a>
+    </div>
+  </div>
+  {{/each}}
+
+  {{!-- {{#if values.0.itemName}} --}}
+  
+  <div class="table-responsive">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each values.[1]}}
+    <tr>
+      <td>
+        {{itemName}} <br>
+        {{itemNotes}}
+      </td>
+      <td>$</td>
+      <td>
+        <i class="fas fa-globe"></i>
+        <i class="fas fa-eye"></i>
+        <i class="fas fa-edit"></i>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+{{!-- {{/if}} --}}
+
+</div>

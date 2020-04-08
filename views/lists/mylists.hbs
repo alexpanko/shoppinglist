@@ -8,13 +8,13 @@
     </div>
   </div>
 
-  {{#if lists.listName}}
+  {{#unless lists.listName}}
     <div class="row my-3">
       <div class="col">
         <p class="text-secondary">You don't have any lists yet...</p> 
       </div>
     </div>
-  {{/if}}
+  {{/unless}}
 
   {{#each lists}}
   <div class="row my-3">
