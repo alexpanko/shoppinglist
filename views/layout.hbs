@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {{!-- START: Temporary hide from search engines --}}
+  <meta name="robots" content="noindex, nofollow">
+  {{!-- END: Temporary hide from search engines --}}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -24,36 +27,42 @@
 
   {{!-- Navbar --}}
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand myLogo myColor-BrightYarrow" href="/">BabyShoppingList</a>
+    <a class="navbar-brand myLogo myColor-BrightYarrow pr-3" href="/">BabyShoppingList</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link myNavLink" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Explore</a>
+          <a class="nav-link myNavLink" href="#">Explore</a>
         </li>
+        {{#if user}}
           <li class="nav-item">
-            {{#if user}}<a class="nav-link" href="/lists/newlist">Create list</a>{{/if}}
+            <a class="nav-link myNavLink" href="/lists/newlist">Create list</a>
           </li>
           <li class="nav-item">
-            {{#if user}}<a class="nav-link" href="/lists/mylists">My lists</a>{{/if}}
+            <a class="nav-link myNavLink" href="/lists/mylists">My lists</a>
           </li>
+        {{/if}}
       </ul>
       <span>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            {{#unless user}}<a class="nav-link" href="/auth/signup">Sign Up</a>{{/unless}}
-          </li>
-          <li class="nav-item">
-            {{#unless user}}<a class="nav-link" href="/auth/login">Login</a>{{/unless}}
-          </li>
-          <li class="nav-item">
-            {{#if user}}<a class="nav-link" href="/auth/logout">Logout</a>{{/if}}
-          </li>
+          {{#unless user}}
+            <li class="nav-item">
+              <a class="nav-link myNavLink" href="/auth/signup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link myNavLink" href="/auth/login">Login</a>
+            </li>
+          {{/unless}}
+          {{#if user}}
+            <li class="nav-item">
+              <a class="nav-link myNavLink" href="/auth/logout">Logout</a>
+            </li>
+          {{/if}}
         </ul>      
       </span>
     </div>

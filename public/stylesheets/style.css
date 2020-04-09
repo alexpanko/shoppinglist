@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth; }
 
 body {
-  font: 16px 'Open Sans', 'Roboto', Helvetica, Arial, sans-serif; }
+  font: 16px 'Roboto', 'Open Sans', Helvetica, Arial, sans-serif !important; }
 
 a {
   color: #00B7FF; }
@@ -19,7 +19,9 @@ a {
 @media (max-width: 400px) {
   .myHeader {
     height: 80vh;
-    background-attachment: initial; } }
+    background-attachment: initial; }
+  .myHeaderTitle {
+    font-size: 3.3rem; } }
 
 .myLogo {
   font-family: 'Gloria Hallelujah', cursive, Helvetica, Arial, sans-serif;
@@ -30,6 +32,15 @@ a {
 
 .myColor-ElectronBlue {
   color: #0984e3 !important; }
+
+.myColor-GreenDarnerTail {
+  color: #74b9ff !important; }
+
+.myNavLink {
+  color: black !important; }
+
+.myNavLink:hover {
+  color: #fdcb6e !important; }
 
 .myFooter {
   background-color: #b2bec3 !important; }
