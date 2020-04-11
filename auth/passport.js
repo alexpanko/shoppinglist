@@ -25,11 +25,11 @@ passport.use(
     User.findOne({ username })
       .then(user => {
         if(!user) {
-          return callback(null, false, { message: 'Incorrect Username'})
+          return callback(null, false, { message: 'Incorrect username'})
         }
         bcrypt.compare(password, user.password, (err, same) => {
           if(!same) {
-            callback(null, false, { message: 'Password Incorrect'})
+            callback(null, false, { message: 'Password incorrect'})
           } else {
             callback(null, user)
           }

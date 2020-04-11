@@ -58,6 +58,8 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+// Register path to partials
+hbs.registerPartials(__dirname + "/views/partials");
 
 
 // default value for title local
@@ -76,5 +78,8 @@ app.use('/lists', listsRouter)
 
 const itemsRouter = require('./routes/items')
 app.use('/items', itemsRouter)
+
+const exploreRouter = require('./routes/explore')
+app.use('/explore', exploreRouter)
 
 module.exports = app;

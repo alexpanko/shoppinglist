@@ -11,26 +11,37 @@
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
       <div class="text-center">
-        <a class="btn btn-primary mt-3 myWidth-300" href="/auth/facebook">Login with Facebook</a>
+        <a class="btn btn-info mt-3 myWidth-300" href="/auth/facebook">Login with Facebook</a>
       </div>
       <div class="text-center">
-        <a class="btn btn-primary my-3 myWidth-300" href="/auth/google">Login with Google</a>
+        <a class="btn btn-info my-3 myWidth-300" href="/auth/google">Login with Google</a>
       </div> 
       <div class="hr-text text-center">
         <hr>
           <span class="bg-white text-secondary font-italic px-2">or...</span>
       </div>
-      <div class="d-flex flex-column align-items-center">
-        <form class="mt-4" action="/auth/login" method="post">
-          <label class="mt-3" for="username">Email:</label><br>
-          <input class="myWidth-300 text-secondary p-1" type="text" name="username"><br>
-          <label class="mt-3" for="password">Password:</label><br>
-          <input class="myWidth-300 text-secondary p-1" type="password" name="password"><br>
-          <button class="myWidth-300 btn btn-primary" type="submit">Login</button>
-        </form>  
-      </div>
+      <form class="mt-5 d-flex flex-column align-items-center" action="/auth/login" method="post">
+        <div class="form-group">
+          <label for="username">Email address:</label>
+          <input type="email" class="form-control myWidth-300" name="username" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control myWidth-300" name="password" placeholder="Password">
+        </div>
+        {{#if message}}
+          <div class="alert alert-warning mb-3 myWidth-300" role="alert">
+            {{message}}
+          </div>
+        {{/if}}
+        <button type="submit" class="btn btn-primary myWidth-300">Login</button>
+      </form>
     </div>
     <div class="col-lg-2"></div>
   </div>
 </div>
+
+
+
+
 
