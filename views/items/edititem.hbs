@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
-      <h1 class="my-3">Create a New Item</h1> 
+      <h1 class="my-3">Edit Your Item</h1> 
       <form action="/items/newitem" method="post">
         <div class="form-group">
           <label class="font-weight-bold" for="itemName">Item name:</label>
-          <input type="text" class="form-control" name="itemName">
+          <input type="text" class="form-control" name="itemName" value="{{item.itemName}}">
         </div>
         <div class="form-group">
           <label class="font-weight-bold" for="itemUrl">Web link/ URL</label>
-          <input type="url" class="form-control" name="itemUrl" placeholder="https://">
+          <input type="url" class="form-control" name="itemUrl" placeholder="https://" value="{{item.itemUrl}}">
         </div>
         <div class="form-group">
           <label class="font-weight-bold" for="itemNotes">Notes:</label>
-          <textarea class="form-control" name="itemNotes" rows="3"></textarea>
+          <textarea class="form-control" name="itemNotes" rows="3">{{item.itemNotes}}</textarea>
         </div>
         <div class="form-group">
           <label class="font-weight-bold" for="listId">List:</label>
@@ -24,12 +24,10 @@
             {{/each}}
           </select>
         </div>
-        <button class="btn btn-primary myWidth-300" type="submit">Create item</button>
+        <button class="btn btn-primary myWidth-300" type="submit">Save</button>
+        <a class="btn btn-link px-5" href="/items/listview/{{item.listId}}">Go back</a>
       </form>
     </div>
     <div class="col-lg-4"></div>
   </div>
 </div>
-
-
-
