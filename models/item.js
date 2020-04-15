@@ -6,6 +6,7 @@ const itemSchema = new Schema({
   itemNotes: { type: String },
   itemUrl: { type: String },
   itemPrice: { type: Number },
+  itemImage: { type: String },
   listId: { type: String }
 })
 

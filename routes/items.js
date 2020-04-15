@@ -37,7 +37,7 @@ router.post('/newitem', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, ne
     itemName: req.body.itemName,
     itemNotes: req.body.itemNotes,
     itemUrl: req.body.itemUrl,
-    // itemPrice: req.body.itemPrice,
+    itemImage: req.body.itemImage,
     listId: req.body.listId
   })
   .then(() => {
@@ -70,12 +70,26 @@ router.get('/listview/:listId/delete/:id', ensureLogin.ensureLoggedIn('/auth/log
   })
 })
 
-//Edit list by id
-router.get('/edit/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
+//Edit item by id
+router.get('/listview/:listId/edit/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const user = req.user
-  Item.findById(req.params.id)
-  .then(item => {
-      res.render('items/edititem', { item, user })
+  const item = Item.findById(req.params.id)
+  const currentList = List.findById(req.params.listId)
+  const allLists = List.find({ owner: req.user._id })
+  Promise.all([item, currentList, allLists])
+  .then(values => {
+    res.render('items/edititem', { values, user });
+  })
+  .catch(e => next(e))
+});
+
+router.post('/edit/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
+  Item.updateOne({_id:req.params.id}, {itemName:req.body.itemName, itemUrl:req.body.itemUrl, itemNotes:req.body.itemNotes, listId:req.body.listId})
+  .then(() => {
+      res.redirect('/items/listview/' + req.body.listId)
+  })
+  .catch(e => {
+      console.log(e)
   })
 })
 

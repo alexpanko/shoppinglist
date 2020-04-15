@@ -13,6 +13,7 @@ router.post('/newlist', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, ne
   List.create({
     listName: req.body.listName,
     listDescription: req.body.listDescription,
+    listImage: req.body.listImage,
     owner: req.user._id
   })
   .then(list => {

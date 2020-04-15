@@ -18,18 +18,21 @@
 
   {{#each values.[1]}}
   <div class="row mt-3">
-    <div class="col-8">
+    <div class="col-10">
       <h3>{{itemName}}</h3>
-      {{#if itemNotes}}<p><strong>Notes: </strong>{{itemNotes}}</p>{{/if}}
+      <div class="d-flex flex-row">
+        <div>{{#if itemImage}}<img class="myItemImage rounded img-fluid mr-3 mb-3" src="{{itemImage}}">{{/if}}</div>
+        <div>{{#if itemNotes}}<p><strong>Notes: </strong>{{itemNotes}}</p>{{/if}}</div>
+      </div>
       {{#if itemUrl}}<p class="text-truncate" style="max-width: 500px"><strong>URL: </strong><a href="{{itemUrl}}">{{itemUrl}}</a></p>{{/if}}
     </div>
-    <div class="col-4 text-center">
-      <a class="btn btn-secondary btn-sm mr-3" href="/items/edit/{{id}}" role="button"><i class="fas fa-edit"></i></a>
+    <div class="col-2 text-center">
+      <a class="btn btn-secondary btn-sm mr-3 mt-1" href="/items/listview/{{listId}}/edit/{{id}}" role="button"><i class="fas fa-edit"></i></a>
       {{!-- <a class="btn btn-secondary btn-sm" href="/lists/delete/{{id}}" role="button"><i class="fas fa-trash-alt"></i></a> --}}
                 
       {{!-- START: Modal popover for delete list confirmation --}}
       {{!-- Button trigger modal --}}
-      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{id}}">
+      <button type="button" class="btn btn-danger btn-sm mt-1" data-toggle="modal" data-target="#exampleModal{{id}}">
         <i class="fas fa-trash-alt"></i>
       </button>
 

@@ -1,0 +1,38 @@
+{{!-- Hero --}}
+  <section class="jumbotron jumbotron-fluid pb-1 myHeader" style="background-image: linear-gradient(to top, rgb(253, 203, 110, 0.8), rgba(253, 203, 110, 0)50%), url(/images/explore/baby-feeding-2-1920x1280.jpg);" >
+  <div class="container">
+    <h1 class="display-2 text-light font-weight-bold myHeaderTitle myColor-GreenDarnerTail mb-5">Baby feeding</h1>
+    <p class="text-center display-4 py-1"><a href="#sectionOne"><i class="fas fa-arrow-circle-down text-light"></i></a></p>
+  </div>
+</section>
+
+{{!-- Section One --}}
+<section class="container py-3" id="sectionOne">
+  <div class="row">
+    <div class="col-md-8 mt-2">
+      <h1>{{values.0.listName}}</h1>
+      <h4 class="text-secondary mb-2">{{values.0.listDescription}}</h4>
+      {{#each values.[1]}}
+      <h4 class="font-weight-bold mb-3 mt-5">{{itemName}}</h4>
+      <img class="w-100" src="{{itemImage}}">
+      <p class="pt-4">{{itemNotes}}</p>
+      <p class="text-truncate" style="max-width: 500px"><strong>URL: </strong><a href="{{itemUrl}}">{{itemUrl}}</a></p>
+      {{/each}}
+    </div>
+    <div class="col-md-4 mt-2">
+      <div class="text-center"><i class="fas fa-share-square display-3 mb-4 myColor-GreenDarnerTail"></i></div>
+      <div><p class="font-weight-bold h4 text-center">Share with your partner and friends</p></div>
+    </div>
+  </div>
+</section>
+
+{{!-- Section Explore More--}}
+<section class="container mt-5">
+  <hr>
+  <div class="row">
+    <div class="col text-center pb-4">
+      <h1 class="myColor-BrightYarrow">Explore more...</h1>
+    </div>
+  </div>
+  {{> exploremore}}
+</section>
