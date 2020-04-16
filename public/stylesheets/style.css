@@ -54,6 +54,9 @@ a {
 .myWidth-75 {
   width: 75px; }
 
+.myWidth-150 {
+  width: 150px !important; }
+
 .hr-text {
   position: relative; }
 
@@ -68,6 +71,10 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; }
+
+@media (max-width: 400px) {
+  .myHideOnMob {
+    display: none; } }
 
 .myItemImage {
   max-width: 100px !important; }

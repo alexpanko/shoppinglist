@@ -93,4 +93,35 @@ router.post('/edit/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, n
   })
 })
 
+//Copy List with Items. Path for button link: /items/copylist/{{id}}
+router.get('/copylist/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
+  const listId = req.params.id
+  let theList = List.findById(listId)
+  .then((myList) => {
+    theList = myList
+    const newList = List.create({
+      listName: theList.listName,
+      listDescription: theList.listDescription,
+      listImage: theList.listImage,
+      owner: req.user._id
+    })
+    .then((newList) => {
+      const items = Item.find({listId: listId})
+      .then((items) => {
+        for (let i = 0; i < items.length; i++) {
+          Item.create({
+            itemName: items[i].itemName,
+            itemNotes: items[i].itemNotes,
+            itemUrl: items[i].itemUrl,
+            itemImage: items[i].itemImage,
+            listId: newList._id
+          })
+        }
+        res.redirect('/items/listview/' + newList._id)
+      })
+    })
+  })
+  .catch(e => next(e))
+})
+
 module.exports = router;
