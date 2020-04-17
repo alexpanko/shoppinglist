@@ -12,14 +12,18 @@
     <div class="col-md-8 mt-2">
       <h1>{{values.0.listName}}</h1>
       <h4 class="text-secondary mb-2">{{values.0.listDescription}}</h4>
-      <div class="text-center pt-3"><a class="btn btn-primary px-5" href="/items/copylist/{{values.0.id}}" role="button">Copy this list to make changes</a></div>
+      {{#if user}}
+        <div class="text-center pt-3"><a class="btn btn-primary px-5" href="/items/copylist/{{values.0.id}}" role="button">Copy this list to make changes</a></div>
+      {{/if}}
       {{#each values.[1]}}
       <h4 class="font-weight-bold mb-3 mt-5">{{itemName}}</h4>
       <img class="w-100" src="{{itemImage}}">
       <p class="pt-4">{{itemNotes}}</p>
       <p class="text-truncate" style="max-width: 500px"><strong>URL: </strong><a href="{{itemUrl}}">{{itemUrl}}</a></p>
       {{/each}}
-      <div class="text-center pt-3"><a class="btn btn-primary px-5" href="/items/copylist/{{values.0.id}}" role="button">Copy this list to make changes</a></div>
+      {{#if user}}
+        <div class="text-center pt-3"><a class="btn btn-primary px-5" href="/items/copylist/{{values.0.id}}" role="button">Copy this list to make changes</a></div>
+      {{/if}}
     </div>
     <div class="col-md-4 mt-2 pl-5 myHideOnMob">
       <div class="myExploreMiniCards">
