@@ -1,0 +1,66 @@
+{{!-- Not in use - alternative solution for searching image. Not done. --}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="my-3">Create a New List</h1> 
+      <form action="/lists/newlist" method="post">
+        <div class="form-group">
+          <label class="font-weight-bold" for="listName">List name:</label>
+          <input type="text" class="form-control" name="listName" value="{{listName}}">
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="listDescription">Description:</label>
+          <textarea class="form-control" name="listDescription" rows="3">{{listDescription}}</textarea>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="listImage">List image:</label>
+          <input type="text" class="form-control d-none" name="listImage">
+        </div>
+        <div class="card-columns">
+          <div class="card shadow mb-3">
+            <img class="card-img-top" src="/images/explore/yoyo-532x320.jpg" alt="Lightweight city stroller">
+          </div>
+          <!-- Button trigger modal -->
+          <button type="1button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+            Find a nice image
+          </button>
+        </div>
+        <div class="card-columns">
+          {{#each json.results}}
+          <div class="card shadow mb-3">
+            <img class="card-img-top" src="{{urls.small}}" alt="Lightweight city stroller">
+          </div>
+          {{/each}}
+        </div>
+        <button class="btn btn-primary myWidth-300" type="submit">Create list</button>
+      </form>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Image for your list</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/lists/unsplash" method="post">
+          <div class="form-group">
+            <label for="theInput">Search for a nice image:</label>
+            <input type="text" class="form-control" name="theInput" id="theInput">
+            <small id="emailHelp" class="form-text text-muted">Powered by Unsplash</small>
+          </div>
+          <button type="submit" class="btn btn-primary px-5">Search</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

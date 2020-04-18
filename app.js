@@ -13,7 +13,6 @@ const Mongostore   = require('connect-mongo')(session)
 const flash        = require('connect-flash')
 const passport = require('./auth/passport')
 
-
 mongoose
   .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {

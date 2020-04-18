@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="my-3">Select a nice image for your list</h1> 
+      <form action="/lists/listimage" method="post">
+        <div class="form-group">
+          <label class="font-weight-bold" for="searchImage">Search for an image:</label>
+          <input type="text" class="form-control" name="searchImage">
+          <small class="form-text text-muted">Powered by Unsplash</small>
+          <input class="d-none" type="text" name="listId" value="{{listId}}">
+        </div>
+        <button class="btn btn-primary myWidth-300" type="submit">Search</button>
+        <a class="btn btn-link px-5" href="/lists/mylists">Skip for now</a>
+      </form>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+          <div class="card-columns">
+          {{#each json.results}}
+          <div class="card shadow mb-3">
+            <a href="/lists/updatelistimage/?id={{../listId}}&imageurl={{urls.small}}">
+              <img class="card-img-top" src="{{urls.small}}" alt="Lightweight city stroller">
+            </a>
+          </div>
+          {{/each}}
+        </div>
+    </div>
+  </div>
+</div>
