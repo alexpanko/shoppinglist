@@ -69,7 +69,7 @@ router.get('/listview/:listId/edit/:id', ensureLogin.ensureLoggedIn('/auth/login
 });
 
 router.post('/edit/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
-  Item.updateOne({_id:req.params.id}, {itemName:req.body.itemName, itemUrl:req.body.itemUrl, itemNotes:req.body.itemImage, itemNotes:req.body.itemImage, listId:req.body.listId})
+  Item.updateOne({_id:req.params.id}, {itemName:req.body.itemName, itemUrl:req.body.itemUrl, itemNotes:req.body.itemNotes, itemImage:req.body.itemImage, listId:req.body.listId})
   .then(() => {
       res.redirect('/items/listview/' + req.body.listId)
   })
