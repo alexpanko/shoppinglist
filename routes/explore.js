@@ -51,7 +51,7 @@ router.get('/city-stroller', (req, res, next) => {
 //Baby monitors
 router.get('/baby-monitors', (req, res, next) => {
   const user = req.user
-  const listId = "5e9b346ed78f5f001729164d"
+  const listId = "5e9ed3f063f1af0017f3c3f4"
   const list = List.findById(listId)
   const item = Item.find({listId: listId})
   Promise.all([list, item])
