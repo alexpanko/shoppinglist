@@ -22,9 +22,9 @@
       <h3>{{itemName}}</h3>
       <div class="d-flex flex-row">
         <div>{{#if itemImage}}<img class="myItemImage rounded img-fluid mr-3 mb-3" src="{{itemImage}}">{{/if}}</div>
-        <div>{{#if itemNotes}}<p><strong>Notes: </strong>{{itemNotes}}</p>{{/if}}</div>
+        <div>{{#if itemNotes}}<p>{{itemNotes}}</p>{{/if}}</div>
       </div>
-      {{#if itemUrl}}<p class="text-truncate" style="max-width: 500px"><strong>URL: </strong><a href="{{itemUrl}}">{{itemUrl}}</a></p>{{/if}}
+      {{#if itemUrl}}<p class="text-truncate" style="max-width: 500px"><a href="{{itemUrl}}">{{itemUrl}}</a></p>{{/if}}
     </div>
     <div class="col-2 text-center">
       <a class="btn btn-secondary btn-sm mr-3 mt-1" href="/items/listview/{{listId}}/edit/{{id}}" role="button"><i class="fas fa-edit"></i></a>
