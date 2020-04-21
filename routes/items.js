@@ -4,21 +4,6 @@ const ensureLogin = require("connect-ensure-login");
 const List = require('../models/list');
 const Item = require('../models/item')
 
-// //Create new item
-// router.get('/newitem/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
-//   // const list = List.findById(req.params.id)
-//   // const listId = req.params.id
-//   const user = req.user
-//   List.find({
-//     owner: req.user._id
-//   })
-//   .then(lists => {
-//     console.log(list)
-//     res.render('items/newitem', { lists, user, list});
-//   })
-//   .catch(e => next(e))
-// });
-
 //Create new item
 router.get('/newitem/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const user = req.user
@@ -84,7 +69,7 @@ router.get('/listview/:listId/edit/:id', ensureLogin.ensureLoggedIn('/auth/login
 });
 
 router.post('/edit/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
-  Item.updateOne({_id:req.params.id}, {itemName:req.body.itemName, itemUrl:req.body.itemUrl, itemNotes:req.body.itemNotes, listId:req.body.listId})
+  Item.updateOne({_id:req.params.id}, {itemName:req.body.itemName, itemUrl:req.body.itemUrl, itemNotes:req.body.itemNotes, itemNotes:req.body.itemImage, listId:req.body.listId})
   .then(() => {
       res.redirect('/items/listview/' + req.body.listId)
   })

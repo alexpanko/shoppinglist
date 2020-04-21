@@ -16,6 +16,15 @@ a {
   background-position: center;
   background-repeat: no-repeat; }
 
+.myHeaderArticle {
+  display: flex;
+  height: 70vh;
+  align-items: flex-end;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat; }
+
 @media (max-width: 400px) {
   .myHeader {
     height: 80vh;
@@ -35,6 +44,9 @@ a {
 
 .myColor-GreenDarnerTail {
   color: #74b9ff !important; }
+
+.myBgColor-GreenDarnerTail {
+  background-color: #74b9ff !important; }
 
 .myColor-ShyMoment {
   color: #a29bfe !important; }

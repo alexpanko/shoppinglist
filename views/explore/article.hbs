@@ -1,10 +1,25 @@
-{{!-- Hero --}}
-  <section class="jumbotron jumbotron-fluid pb-1 myHeader" style="background-image: linear-gradient(to top, rgb(253, 203, 110, 0.8), rgba(253, 203, 110, 0)50%), url(/images/explore/baby-feeding-2-1920x1280.jpg);" >
+{{!-- Hero full screen size --}}
+  {{!-- <section class="jumbotron jumbotron-fluid pb-1 myHeader" style="background-image: linear-gradient(to top, rgb(253, 203, 110, 0.8), rgba(253, 203, 110, 0)50%), url(/images/explore/baby-feeding-2-1920x1280.jpg);" >
   <div class="container">
     <h1 class="display-2 text-light font-weight-bold myHeaderTitle myColor-GreenDarnerTail mb-5">Baby feeding</h1>
     <p class="text-center display-4 py-1"><a href="#sectionOne"><i class="fas fa-arrow-circle-down text-light"></i></a></p>
   </div>
-</section>
+</section> --}}
+
+{{!-- Hero2 small screen size--}}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section class="jumbotron jumbotron-fluid pb-1 myHeaderArticle" style="background-image: linear-gradient(to top, rgb(253, 203, 110, 0.8), rgba(253, 203, 110, 0)50%), url({{values.0.listImage}});" >
+        <div class="container">
+          <div class="row">
+            <h1 class="display-2 text-light font-weight-bold myHeaderTitle myBgColor-GreenDarnerTail text-white mb-5 mx-3">{{values.0.listName}}</h1>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
 
 {{!-- Section One --}}
 <section class="container py-3" id="sectionOne">
